@@ -13,10 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        @role('web-developer')
+              @role('web-developer')
 				Web Developer Panel
 			 @endrole	
-			@hello('Unai')
+		
                 <?php
                 
              
