@@ -13,9 +13,31 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
-                </div>
+                        @role('web-developer')
+				Web Developer Panel
+			 @endrole	
+			@hello('Unai')
+                <?php
+                
+             
+                
+                if(auth()->check() && auth()->user()->hasRole('web-developer')){
+                    echo "dsaf";
+                }
+                
+       
+                $user = App\User::find(1);
+      //          dd($user->hasRole('web-developer')); // will return true
+//                dd($user->hasRole('project-manager'));// will return false
+              //  dd($user->givePermissionsTo('manage-users'));
+   //             dd($user->hasPermission('manage-users'));// will return true
+                 
+                dd($user->can('manage-users'));
+                
+                 ?>
+         
+      
+				 </div>
             </div>
         </div>
     </div>
