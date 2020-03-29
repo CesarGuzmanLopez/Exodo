@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -13,30 +12,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-              @role('web-developer')
-				Web Developer Panel
-			 @endrole	
-		
-                <?php
-                
-             
-                
-                if(auth()->check() && auth()->user()->hasRole('web-developer')){
-                    echo "dsaf";
-                }
-                
-       
-                $user = App\User::find(1);
-      //          dd($user->hasRole('web-developer')); // will return true
-//                dd($user->hasRole('project-manager'));// will return false
-              //  dd($user->givePermissionsTo('manage-users'));
-   //             dd($user->hasPermission('manage-users'));// will return true
-                 
-                dd($user->can('manage-users'));
-                
-                 ?>
-         
-      
+	            <h1>
+                           	@can('manage-users')
+                        		 manejador usuario
+                           	@endcan
+                </h1> 
+              	<h2> 
+              	
+					@role("web-developer")
+              	 		web-developer	
+                   	@endrole
+               	</h2>    
 				 </div>
             </div>
         </div>

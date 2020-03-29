@@ -14,8 +14,8 @@ class PermissionServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
-        //
+    { 
+        
     }
 
     /**
@@ -24,16 +24,15 @@ class PermissionServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        try {
+    { 
+         try { 
             Permission::get()->map(function ($permission) {
                 Gate::define($permission->slug, function ($user) use ($permission) {
-                    return $user->hasPermissionTo($permission);
+                   return true;
                 });
-            });
+            });             
         } catch (\Exception $e) {
             report($e);
-            return "ja";
             return false;
         }
     }
